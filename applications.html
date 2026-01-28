@@ -222,14 +222,6 @@
                             <input type="text" id="patrol-availability" placeholder="e.g., 20-30 hours" required>
                         </div>
                         
-                        <div>
-                            <label class="block text-gray-300 mb-2 font-semibold">Do you have a clean driving record? *</label>
-                            <select id="patrol-driving" class="w-full bg-gray-900 border border-indigo-500/30 text-white p-3 rounded-lg">
-                                <option value="">Select...</option>
-                                <option value="Yes">Yes</option>
-                                <option value="No">No</option>
-                            </select>
-                        </div>
                         
                         <button onclick="copyApplication('patrol')" class="w-full neon-border px-6 py-3 rounded-lg font-semibold text-neon hover:bg-indigo-900/20 transition-all mt-6">
                             <i data-lucide="copy" class="inline mr-2" size="18"></i>
@@ -276,7 +268,7 @@
                         
                         <div>
                             <label class="block text-gray-300 mb-2 font-semibold">Age *</label>
-                            <input type="number" id="detective-age" placeholder="18+" required>
+                            <input type="number" id="detective-age" placeholder="13+" required>
                         </div>
                         
                         <div>
@@ -427,7 +419,7 @@
                         
                         <div>
                             <label class="block text-gray-300 mb-2 font-semibold">Age *</label>
-                            <input type="number" id="dispatcher-age" placeholder="18+" required>
+                            <input type="number" id="dispatcher-age" placeholder="13+" required>
                         </div>
                         
                         <div>
@@ -500,7 +492,7 @@
                         
                         <div>
                             <label class="block text-gray-300 mb-2 font-semibold">Age *</label>
-                            <input type="number" id="training-age" placeholder="18+" required>
+                            <input type="number" id="training-age" placeholder="13+" required>
                         </div>
                         
                         <div>
@@ -659,7 +651,6 @@
                     { id: 'why', label: 'Why do you want to join UKFR?' },
                     { id: 'fit', label: 'What makes you a good fit for Patrol Officer?' },
                     { id: 'availability', label: 'Availability' },
-                    { id: 'driving', label: 'Clean Driving Record?' }
                 ],
                 'detective': [
                     { id: 'name', label: 'Full Name' },
