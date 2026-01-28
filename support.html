@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support - UKFR</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Fraunces:wght@600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        * {
+            font-family: 'DM Sans', sans-serif;
+        }
+        h1, h2, h3, h4 {
+            font-family: 'Fraunces', serif;
+        }
+        body {
+            background: radial-gradient(ellipse at top, #1a1a2e 0%, #0f0f1e 50%, #000000 100%);
+            min-height: 100vh;
+        }
+        .glass-card {
+            background: rgba(15, 15, 30, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(123, 141, 255, 0.3);
+            box-shadow: 0 8px 32px 0 rgba(123, 141, 255, 0.1);
+        }
+        .neon-border {
+            border: 2px solid rgba(123, 141, 255, 0.5);
+            box-shadow: 0 0 20px rgba(123, 141, 255, 0.3), inset 0 0 20px rgba(123, 141, 255, 0.1);
+        }
+        .text-neon {
+            color: #7b8dff;
+            text-shadow: 0 0 10px rgba(123, 141, 255, 0.5);
+        }
+        .text-neon-purple {
+            color: #9f6bff;
+            text-shadow: 0 0 10px rgba(159, 107, 255, 0.5);
+        }
+        .nav-link {
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        .nav-link:hover {
+            color: #7b8dff;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #7b8dff, #9f6bff);
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        .hero-text {
+            background: linear-gradient(135deg, #7b8dff 0%, #9f6bff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+</head>
+<body class="text-gray-100">
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 glass-card">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center space-x-2">
+                    <i data-lucide="shield-check" class="text-neon" stroke-width="2.5"></i>
+                    <span class="text-xl font-bold hero-text">UKFR</span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="nav-link text-gray-300 hover:text-neon">Home</a>
+                    <a href="operations.html" class="nav-link text-gray-300 hover:text-neon">Operations</a>
+                    <a href="rules.html" class="nav-link text-gray-300 hover:text-neon">Rules</a>
+                    <a href="applications.html" class="nav-link text-gray-300 hover:text-neon">Applications</a>
+                    <a href="staff.html" class="nav-link text-gray-300 hover:text-neon">Staff</a>
+                    <a href="support.html" class="nav-link text-neon font-medium">Support</a>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-gray-300">
+                        <i data-lucide="menu"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden glass-card mt-2 mx-4 rounded-lg">
+            <div class="flex flex-col space-y-2 p-4">
+                <a href="index.html" class="text-gray-300 hover:text-neon py-2">Home</a>
+                <a href="operations.html" class="text-gray-300 hover:text-neon py-2">Operations</a>
+                <a href="rules.html" class="text-gray-300 hover:text-neon py-2">Rules</a>
+                <a href="applications.html" class="text-gray-300 hover:text-neon py-2">Applications</a>
+                <a href="staff.html" class="text-gray-300 hover:text-neon py-2">Staff</a>
+                <a href="support.html" class="text-neon font-medium py-2">Support</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div class="text-center space-y-4">
+            <div class="inline-block glass-card px-4 py-2 rounded-full mb-2">
+                <span class="text-neon text-sm font-semibold tracking-wider">ASSISTANCE CENTER</span>
+            </div>
+            <h1 class="text-5xl md:text-6xl font-bold hero-text">Support & Contact</h1>
+            <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+                Need assistance? Our support team is available 24/7 to help with any questions or concerns.
+            </p>
+        </div>
+    </section>
+
+    <!-- Emergency Contact -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="glass-card rounded-xl p-8 neon-border bg-gradient-to-r from-red-900/20 to-orange-900/20">
+            <div class="flex items-center space-x-4 mb-6">
+                <i data-lucide="alert-triangle" class="text-red-400" size="48"></i>
+                <div>
+                    <h2 class="text-3xl font-bold text-red-400">Emergency Hotline</h2>
+                    <p class="text-gray-300">For urgent operational emergencies only</p>
+                </div>
+            </div>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="glass-card rounded-lg p-6">
+                    <div class="flex items-center space-x-3 mb-2">
+                        <i data-lucide="phone" class="text-neon"></i>
+                        <h3 class="text-xl font-bold text-gray-100">Emergency Line</h3>
+                    </div>
+                    <p class="text-3xl font-bold text-neon-purple mb-2">999</p>
+                    <p class="text-sm text-gray-400">Active threats, immediate danger, officer down</p>
+                </div>
+                <div class="glass-card rounded-lg p-6">
+                    <div class="flex items-center space-x-3 mb-2">
+                        <i data-lucide="radio" class="text-neon"></i>
+                        <h3 class="text-xl font-bold text-gray-100">Tactical Dispatch</h3>
+                    </div>
+                    <p class="text-3xl font-bold text-neon-purple mb-2">0800 UKFR-911</p>
+                    <p class="text-sm text-gray-400">Direct tactical coordination and backup requests</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Methods -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <h2 class="text-3xl font-bold text-neon-purple mb-8">Contact Methods</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- General Inquiries -->
+            <div class="glass-card rounded-xl p-6 hover:neon-border transition-all group">
+                <div class="w-14 h-14 rounded-lg bg-gradient-to-br from-indigo-500/20 to-purple-500/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                    <i data-lucide="mail" class="text-neon" size="28"></i>
+                </div>
+                <h3 class="text-xl font-bold text-gray-100 mb-3">General Inquiries</h3>
+                <p class="text-gray-400 mb-4 text-sm">
+                    For non-urgent questions about our services, operations, or general information.
+                </p>
+                <a href="mailto:info@ukfr.uk" class="text-neon hover:text-neon-purple transition-colors font-semibold text-sm">
+                    info@ukfr.uk
+                </a>
+                <p class="text-gray-500 text-xs mt-2">Response within 24 hours</p>
+            </div>
+
+            <!-- Recruitment -->
+            <div class="glass-card rounded-xl p-6 hover:neon-border transition-all group">
+                <div class="w-14 h-14 rounded-lg bg-gradient-to-br from-indigo-500/20 to-purple-500/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                    <i data-lucide="users" class="text-neon" size="28"></i>
+                </div>
+                <h3 class="text-xl font-bold text-gray-100 mb-3">Recruitment</h3>
+                <p class="text-gray-400 mb-4 text-sm">
+                    Questions about applications, interview process, or career opportunities.
+                </p>
+                <a href="mailto:recruitment@ukfr.uk" class="text-neon hover:text-neon-purple transition-colors font-semibold text-sm">
+                    recruitment@ukfr.uk
+                </a>
+                <p class="text-gray-500 text-xs mt-2">Response within 48 hours</p>
+            </div>
+
+            <!-- Technical Support -->
+            <div class="glass-card rounded-xl p-6 hover:neon-border transition-all group">
+                <div class="w-14 h-14 rounded-lg bg-gradient-to-br from-indigo-500/20 to-purple-500/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                    <i data-lucide="wrench" class="text-neon" size="28"></i>
+                </div>
+                <h3 class="text-xl font-bold text-gray-100 mb-3">Technical Support</h3>
+                <p class="text-gray-400 mb-4 text-sm">
+                    IT issues, system access problems, or equipment malfunctions.
+                </p>
+                <a href="mailto:tech@ukfr.uk" class="text-neon hover:text-neon-purple transition-colors font-semibold text-sm">
+                    tech@ukfr.uk
+                </a>
+                <p class="text-gray-500 text-xs mt-2">Priority support for active units</p>
+            </div>
+
+            <!-- Media Relations -->
+            <div class="glass-card rounded-xl p-6 hover:neon-border transition-all group">
+                <div class="w-14 h-14 rounded-lg bg-gradient-to-br from-indigo-500/20 to-purple-500/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                    <i data-lucide="newspaper" class="text-neon" size="28"></i>
+                </div>
+                <h3 class="text-xl font-bold text-gray-100 mb-3">Media Relations</h3>
+                <p class="text-gray-400 mb-4 text-sm">
+                    Press inquiries, interview requests, and media partnerships.
+                </p>
+                <a href="mailto:press@ukfr.uk" class="text-neon hover:text-neon-purple transition-colors font-semibold text-sm">
+                    press@ukfr.uk
+                </a>
+                <p class="text-gray-500 text-xs mt-2">Media team available 9am-5pm</p>
+            </div>
+
+            <!-- Community Outreach -->
+            <div class="glass-card rounded-xl p-6 hover:neon-border transition-all group">
+                <div class="w-14 h-14 rounded-lg bg-gradient-to-br from-indigo-500/20 to-purple-500/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                    <i data-lucide="heart-handshake" class="text-neon" size="28"></i>
+                </div>
+                <h3 class="text-xl font-bold text-gray-100 mb-3">Community Outreach</h3>
+                <p class="text-gray-400 mb-4 text-sm">
+                    Community programs, educational visits, and partnership initiatives.
+                </p>
+                <a href="mailto:community@ukfr.uk" class="text-neon hover:text-neon-purple transition-colors font-semibold text-sm">
+                    community@ukfr.uk
+                </a>
+                <p class="text-gray-500 text-xs mt-2">Building stronger communities together</p>
+            </div>
+
+            <!-- Feedback & Complaints -->
+            <div class="glass-card rounded-xl p-6 hover:neon-border transition-all group">
+                <div class="w-14 h-14 rounded-lg bg-gradient-to-br from-indigo-500/20 to-purple-500/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                    <i data-lucide="message-square" class="text-neon" size="28"></i>
+                </div>
+                <h3 class="text-xl font-bold text-gray-100 mb-3">Feedback & Complaints</h3>
+                <p class="text-gray-400 mb-4 text-sm">
+                    Submit feedback, compliments, or formal complaints about our services.
+                </p>
+                <a href="mailto:feedback@ukfr.uk" class="text-neon hover:text-neon-purple transition-colors font-semibold text-sm">
+                    feedback@ukfr.uk
+                </a>
+                <p class="text-gray-500 text-xs mt-2">All feedback reviewed by management</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Headquarters -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <h2 class="text-3xl font-bold text-neon-purple mb-8">Headquarters</h2>
+        <div class="grid md:grid-cols-2 gap-8">
+            <!-- Main Office -->
+            <div class="glass-card rounded-xl p-8 neon-border">
+                <div class="flex items-center space-x-3 mb-6">
+                    <i data-lucide="building-2" class="text-neon" size="32"></i>
+                    <h3 class="text-2xl font-bold text-gray-100">Central Command</h3>
+                </div>
+                <div class="space-y-4">
+                    <div class="flex items-start space-x-3">
+                        <i data-lucide="map-pin" class="text-neon-purple mt-1"></i>
+                        <div>
+                            <p class="text-gray-300 font-semibold">Address</p>
+                            <p class="text-gray-400 text-sm">1 Victoria Embankment<br>London, SW1A 2AA<br>United Kingdom</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-3">
+                        <i data-lucide="phone" class="text-neon-purple mt-1"></i>
+                        <div>
+                            <p class="text-gray-300 font-semibold">Main Line</p>
+                            <p class="text-gray-400 text-sm">+44 20 7946 0958</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-3">
+                        <i data-lucide="clock" class="text-neon-purple mt-1"></i>
+                        <div>
+                            <p class="text-gray-300 font-semibold">Operating Hours</p>
+                            <p class="text-gray-400 text-sm">24/7 Operations Center<br>Office Hours: Mon-Fri 8am-6pm</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Visit Us -->
+            <div class="glass-card rounded-xl p-8">
+                <div class="flex items-center space-x-3 mb-6">
+                    <i data-lucide="calendar" class="text-neon" size="32"></i>
+                    <h3 class="text-2xl font-bold text-gray-100">Visit Information</h3>
+                </div>
+                <div class="space-y-4">
+                    <p class="text-gray-400">
+                        Our headquarters is open for scheduled visits and tours. Educational groups and community organizations are welcome.
+                    </p>
+                    <div class="glass-card rounded-lg p-4 bg-indigo-900/10">
+                        <h4 class="font-semibold text-neon mb-2">Security Notice</h4>
+                        <p class="text-sm text-gray-400">
+                            All visitors must schedule appointments in advance. Valid photo ID required. Security screening mandatory.
+                        </p>
+                    </div>
+                    <button class="w-full neon-border px-6 py-3 rounded-lg font-semibold text-neon hover:bg-indigo-900/20 transition-all">
+                        Schedule a Visit
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <h2 class="text-3xl font-bold text-neon-purple mb-8">Frequently Asked Questions</h2>
+        <div class="space-y-4">
+            <div class="glass-card rounded-xl p-6 hover:neon-border transition-all">
+                <h3 class="text-xl font-bold text-gray-100 mb-3">How do I report a non-emergency incident?</h3>
+                <p class="text-gray-400">
+                    For non-emergency incidents, please contact your local sector command or email info@ukfr.uk with details of the situation. Our team will assess and respond accordingly.
+                </p>
+            </div>
+
+            <div class="glass-card rounded-xl p-6 hover:neon-border transition-all">
+                <h3 class="text-xl font-bold text-gray-100 mb-3">What is the typical application process timeline?</h3>
+                <p class="text-gray-400">
+                    The recruitment process typically takes 4-6 weeks from initial application to final decision. This includes application review (1 week), interviews (2-3 weeks), and background checks (1-2 weeks).
+                </p>
+            </div>
+
+            <div class="glass-card rounded-xl p-6 hover:neon-border transition-all">
+                <h3 class="text-xl font-bold text-gray-100 mb-3">How can I request records or documentation?</h3>
+                <p class="text-gray-400">
+                    Submit formal records requests to info@ukfr.uk with specific details about the documents needed. Freedom of Information requests are processed within 20 working days.
+                </p>
+            </div>
+
+            <div class="glass-card rounded-xl p-6 hover:neon-border transition-all">
+                <h3 class="text-xl font-bold text-gray-100 mb-3">What training is provided to new recruits?</h3>
+                <p class="text-gray-400">
+                    All new recruits complete a comprehensive 12-week training program covering tactical procedures, emergency response, legal protocols, and physical conditioning. Specialized roles require additional certification.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Media -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="glass-card rounded-xl p-8 neon-border text-center">
+            <h2 class="text-3xl font-bold hero-text mb-4">Stay Connected</h2>
+            <p class="text-gray-400 mb-6 max-w-2xl mx-auto">
+                Follow us on social media for the latest updates, operational news, and community initiatives.
+            </p>
+            <div class="flex justify-center space-x-6">
+                <a href="#" class="w-14 h-14 rounded-lg glass-card flex items-center justify-center hover:neon-border transition-all group">
+                    <i data-lucide="twitter" class="text-gray-400 group-hover:text-neon transition-colors"></i>
+                </a>
+                <a href="#" class="w-14 h-14 rounded-lg glass-card flex items-center justify-center hover:neon-border transition-all group">
+                    <i data-lucide="facebook" class="text-gray-400 group-hover:text-neon transition-colors"></i>
+                </a>
+                <a href="#" class="w-14 h-14 rounded-lg glass-card flex items-center justify-center hover:neon-border transition-all group">
+                    <i data-lucide="instagram" class="text-gray-400 group-hover:text-neon transition-colors"></i>
+                </a>
+                <a href="#" class="w-14 h-14 rounded-lg glass-card flex items-center justify-center hover:neon-border transition-all group">
+                    <i data-lucide="youtube" class="text-gray-400 group-hover:text-neon transition-colors"></i>
+                </a>
+                <a href="#" class="w-14 h-14 rounded-lg glass-card flex items-center justify-center hover:neon-border transition-all group">
+                    <i data-lucide="linkedin" class="text-gray-400 group-hover:text-neon transition-colors"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="glass-card mt-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div class="space-y-4">
+                    <div class="flex items-center space-x-2">
+                        <i data-lucide="shield-check" class="text-neon"></i>
+                        <span class="text-lg font-bold hero-text">UKFR</span>
+                    </div>
+                    <p class="text-gray-400 text-sm">
+                        United Kingdom First Response - Elite tactical operations and emergency coordination.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-neon mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="index.html" class="text-gray-400 hover:text-neon transition-colors">Home</a></li>
+                        <li><a href="operations.html" class="text-gray-400 hover:text-neon transition-colors">Operations</a></li>
+                        <li><a href="rules.html" class="text-gray-400 hover:text-neon transition-colors">Rules</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-neon mb-4">Resources</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="applications.html" class="text-gray-400 hover:text-neon transition-colors">Applications</a></li>
+                        <li><a href="staff.html" class="text-gray-400 hover:text-neon transition-colors">Staff Team</a></li>
+                        <li><a href="support.html" class="text-gray-400 hover:text-neon transition-colors">Support</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-neon mb-4">Connect</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-neon transition-colors">
+                            <i data-lucide="twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-neon transition-colors">
+                            <i data-lucide="youtube"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-neon transition-colors">
+                            <i data-lucide="linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
+                <p>&copy; 2026 UKFR - United Kingdom First Response. All rights reserved.</p>
+                <p class="mt-2 md:mt-0">Tactical Operations Command</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+        
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>

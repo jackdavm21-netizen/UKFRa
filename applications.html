@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Applications - UKFR</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Fraunces:wght@600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        * {
+            font-family: 'DM Sans', sans-serif;
+        }
+        h1, h2, h3, h4 {
+            font-family: 'Fraunces', serif;
+        }
+        body {
+            background: radial-gradient(ellipse at top, #1a1a2e 0%, #0f0f1e 50%, #000000 100%);
+            min-height: 100vh;
+        }
+        .glass-card {
+            background: rgba(15, 15, 30, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(123, 141, 255, 0.3);
+            box-shadow: 0 8px 32px 0 rgba(123, 141, 255, 0.1);
+        }
+        .neon-border {
+            border: 2px solid rgba(123, 141, 255, 0.5);
+            box-shadow: 0 0 20px rgba(123, 141, 255, 0.3), inset 0 0 20px rgba(123, 141, 255, 0.1);
+        }
+        .text-neon {
+            color: #7b8dff;
+            text-shadow: 0 0 10px rgba(123, 141, 255, 0.5);
+        }
+        .text-neon-purple {
+            color: #9f6bff;
+            text-shadow: 0 0 10px rgba(159, 107, 255, 0.5);
+        }
+        .nav-link {
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        .nav-link:hover {
+            color: #7b8dff;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #7b8dff, #9f6bff);
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        .hero-text {
+            background: linear-gradient(135deg, #7b8dff 0%, #9f6bff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .status-open {
+            background: rgba(34, 197, 94, 0.2);
+            border: 1px solid rgba(34, 197, 94, 0.5);
+            color: #22c55e;
+        }
+        .status-closed {
+            background: rgba(107, 114, 128, 0.2);
+            border: 1px solid rgba(107, 114, 128, 0.5);
+            color: #9ca3af;
+        }
+    </style>
+</head>
+<body class="text-gray-100">
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 glass-card">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center space-x-2">
+                    <i data-lucide="shield-check" class="text-neon" stroke-width="2.5"></i>
+                    <span class="text-xl font-bold hero-text">UKFR</span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="nav-link text-gray-300 hover:text-neon">Home</a>
+                    <a href="operations.html" class="nav-link text-gray-300 hover:text-neon">Operations</a>
+                    <a href="rules.html" class="nav-link text-gray-300 hover:text-neon">Rules</a>
+                    <a href="applications.html" class="nav-link text-neon font-medium">Applications</a>
+                    <a href="staff.html" class="nav-link text-gray-300 hover:text-neon">Staff</a>
+                    <a href="support.html" class="nav-link text-gray-300 hover:text-neon">Support</a>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-gray-300">
+                        <i data-lucide="menu"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden glass-card mt-2 mx-4 rounded-lg">
+            <div class="flex flex-col space-y-2 p-4">
+                <a href="index.html" class="text-gray-300 hover:text-neon py-2">Home</a>
+                <a href="operations.html" class="text-gray-300 hover:text-neon py-2">Operations</a>
+                <a href="rules.html" class="text-gray-300 hover:text-neon py-2">Rules</a>
+                <a href="applications.html" class="text-neon font-medium py-2">Applications</a>
+                <a href="staff.html" class="text-gray-300 hover:text-neon py-2">Staff</a>
+                <a href="support.html" class="text-gray-300 hover:text-neon py-2">Support</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div class="text-center space-y-4">
+            <div class="inline-block glass-card px-4 py-2 rounded-full mb-2">
+                <span class="text-neon text-sm font-semibold tracking-wider">RECRUITMENT</span>
+            </div>
+            <h1 class="text-5xl md:text-6xl font-bold hero-text">Join Our Forces</h1>
+            <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+                Apply to become part of the elite UKFR tactical response team. Multiple positions and specializations available.
+            </p>
+        </div>
+    </section>
+
+    <!-- Application Process -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="glass-card rounded-xl p-8 neon-border mb-12">
+            <h2 class="text-3xl font-bold text-neon-purple mb-6">Application Process</h2>
+            <div class="grid md:grid-cols-4 gap-6">
+                <div class="text-center space-y-3">
+                    <div class="w-16 h-16 rounded-full bg-gradient-to-br from-indigo-500/20 to-purple-500/20 flex items-center justify-center mx-auto">
+                        <span class="text-2xl font-bold text-neon">1</span>
+                    </div>
+                    <h3 class="font-semibold text-gray-100">Submit Application</h3>
+                    <p class="text-sm text-gray-400">Complete the application form for your desired position</p>
+                </div>
+                <div class="text-center space-y-3">
+                    <div class="w-16 h-16 rounded-full bg-gradient-to-br from-indigo-500/20 to-purple-500/20 flex items-center justify-center mx-auto">
+                        <span class="text-2xl font-bold text-neon">2</span>
+                    </div>
+                    <h3 class="font-semibold text-gray-100">Initial Review</h3>
+                    <p class="text-sm text-gray-400">Our recruitment team reviews your application</p>
+                </div>
+                <div class="text-center space-y-3">
+                    <div class="w-16 h-16 rounded-full bg-gradient-to-br from-indigo-500/20 to-purple-500/20 flex items-center justify-center mx-auto">
+                        <span class="text-2xl font-bold text-neon">3</span>
+                    </div>
+                    <h3 class="font-semibold text-gray-100">Interview</h3>
+                    <p class="text-sm text-gray-400">Attend interview with command staff</p>
+                </div>
+                <div class="text-center space-y-3">
+                    <div class="w-16 h-16 rounded-full bg-gradient-to-br from-indigo-500/20 to-purple-500/20 flex items-center justify-center mx-auto">
+                        <span class="text-2xl font-bold text-neon">4</span>
+                    </div>
+                    <h3 class="font-semibold text-gray-100">Training</h3>
+                    <p class="text-sm text-gray-400">Complete mandatory training program</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Application Categories -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <h2 class="text-3xl font-bold text-neon-purple mb-8">Open Positions</h2>
+        <div class="grid md:grid-cols-2 gap-8">
+            <!-- Patrol Officer -->
+            <div class="glass-card rounded-xl p-8 hover:neon-border transition-all group">
+                <div class="flex items-start justify-between mb-4">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-14 h-14 rounded-lg bg-gradient-to-br from-indigo-500/20 to-purple-500/20 flex items-center justify-center group-hover:scale-110 transition-transform">
+                            <i data-lucide="shield" class="text-neon" size="28"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold text-gray-100">Patrol Officer</h3>
+                            <span class="status-open px-2 py-1 rounded text-xs font-semibold">OPEN</span>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-gray-400 mb-6">
+                    Front-line response officers conducting routine patrols, traffic enforcement, and initial incident response. Entry-level position with comprehensive training provided.
+                </p>
+                <div class="space-y-3 mb-6">
+                    <div class="flex items-start space-x-2">
+                        <i data-lucide="check" class="text-green-400 mt-1" size="18"></i>
+                        <span class="text-sm text-gray-300">Clean driving record required</span>
+                    </div>
+                    <div class="flex items-start space-x-2">
+                        <i data-lucide="check" class="text-green-400 mt-1" size="18"></i>
+                        <span class="text-sm text-gray-300">Basic first aid certification</span>
+                    </div>
+                    <div class="flex items-start space-x-2">
+                        <i data-lucide="check" class="text-green-400 mt-1" size="18"></i>
+                        <span class="text-sm text-gray-300">Excellent communication skills</span>
+                    </div>
+                </div>
+                <button class="w-full neon-border px-6 py-3 rounded-lg font-semibold text-neon hover:bg-indigo-900/20 transition-all">
+                    Apply Now
+                </button>
+            </div>
+
+            <!-- Detective -->
+            <div class="glass-card rounded-xl p-8 hover:neon-border transition-all group">
+                <div class="flex items-start justify-between mb-4">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-14 h-14 rounded-lg bg-gradient-to-br from-indigo-500/20 to-purple-500/20 flex items-center justify-center group-hover:scale-110 transition-transform">
+                            <i data-lucide="search" class="text-neon" size="28"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold text-gray-100">Detective</h3>
+                            <span class="status-open px-2 py-1 rounded text-xs font-semibold">OPEN</span>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-gray-400 mb-6">
+                    Investigative specialists conducting complex case work, evidence analysis, and criminal investigations. Experience in law enforcement required.
+                </p>
+                <div class="space-y-3 mb-6">
+                    <div class="flex items-start space-x-2">
+                        <i data-lucide="check" class="text-green-400 mt-1" size="18"></i>
+                        <span class="text-sm text-gray-300">2+ years patrol experience</span>
+                    </div>
+                    <div class="flex items-start space-x-2">
+                        <i data-lucide="check" class="text-green-400 mt-1" size="18"></i>
+                        <span class="text-sm text-gray-300">Analytical and detail-oriented</span>
+                    </div>
+                    <div class="flex items-start space-x-2">
+                        <i data-lucide="check" class="text-green-400 mt-1" size="18"></i>
+                        <span class="text-sm text-gray-300">Report writing proficiency</span>
+                    </div>
+                </div>
+                <button class="w-full neon-border px-6 py-3 rounded-lg font-semibold text-neon hover:bg-indigo-900/20 transition-all">
+                    Apply Now
+                </button>
+            </div>
+
+            <!-- Tactical Unit -->
+            <div class="glass-card rounded-xl p-8 hover:neon-border transition-all group">
+                <div class="flex items-start justify-between mb-4">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-14 h-14 rounded-lg bg-gradient-to-br from-indigo-500/20 to-purple-500/20 flex items-center justify-center group-hover:scale-110 transition-transform">
+                            <i data-lucide="target" class="text-neon" size="28"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold text-gray-100">Tactical Unit</h3>
+                            <span class="status-open px-2 py-1 rounded text-xs font-semibold">OPEN</span>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-gray-400 mb-6">
+                    Elite response team for high-risk situations. Advanced weapons training, hostage negotiation, and crisis intervention specialist roles available.
+                </p>
+                <div class="space-y-3 mb-6">
+                    <div class="flex items-start space-x-2">
+                        <i data-lucide="check" class="text-green-400 mt-1" size="18"></i>
+                        <span class="text-sm text-gray-300">3+ years active duty experience</span>
+                    </div>
+                    <div class="flex items-start space-x-2">
+                        <i data-lucide="check" class="text-green-400 mt-1" size="18"></i>
+                        <span class="text-sm text-gray-300">Advanced tactical certification</span>
+                    </div>
+                    <div class="flex items-start space-x-2">
+                        <i data-lucide="check" class="text-green-400 mt-1" size="18"></i>
+                        <span class="text-sm text-gray-300">Excellent physical fitness</span>
+                    </div>
+                </div>
+                <button class="w-full neon-border px-6 py-3 rounded-lg font-semibold text-neon hover:bg-indigo-900/20 transition-all">
+                    Apply Now
+                </button>
+            </div>
+
+            <!-- K9 Handler -->
+            <div class="glass-card rounded-xl p-8 hover:neon-border transition-all group">
+                <div class="flex items-start justify-between mb-4">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-14 h-14 rounded-lg bg-gradient-to-br from-indigo-500/20 to-purple-500/20 flex items-center justify-center group-hover:scale-110 transition-transform">
+                            <i data-lucide="dog" class="text-neon" size="28"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold text-gray-100">K9 Handler</h3>
+                            <span class="status-closed px-2 py-1 rounded text-xs font-semibold">CLOSED</span>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-gray-400 mb-6">
+                    Specialized canine unit handlers for tracking, detection, and apprehension operations. Comprehensive K9 training program included.
+                </p>
+                <div class="space-y-3 mb-6">
+                    <div class="flex items-start space-x-2">
+                        <i data-lucide="check" class="text-green-400 mt-1" size="18"></i>
+                        <span class="text-sm text-gray-300">2+ years field experience</span>
+                    </div>
+                    <div class="flex items-start space-x-2">
+                        <i data-lucide="check" class="text-green-400 mt-1" size="18"></i>
+                        <span class="text-sm text-gray-300">Animal handling experience preferred</span>
+                    </div>
+                    <div class="flex items-start space-x-2">
+                        <i data-lucide="check" class="text-green-400 mt-1" size="18"></i>
+                        <span class="text-sm text-gray-300">Patience and dedication required</span>
+                    </div>
+                </div>
+                <button class="w-full glass-card px-6 py-3 rounded-lg font-semibold text-gray-500 cursor-not-allowed">
+                    Currently Closed
+                </button>
+            </div>
+
+            <!-- Dispatcher -->
+            <div class="glass-card rounded-xl p-8 hover:neon-border transition-all group">
+                <div class="flex items-start justify-between mb-4">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-14 h-14 rounded-lg bg-gradient-to-br from-indigo-500/20 to-purple-500/20 flex items-center justify-center group-hover:scale-110 transition-transform">
+                            <i data-lucide="radio" class="text-neon" size="28"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold text-gray-100">Dispatcher</h3>
+                            <span class="status-open px-2 py-1 rounded text-xs font-semibold">OPEN</span>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-gray-400 mb-6">
+                    Communications specialists coordinating emergency response, unit deployment, and real-time tactical support from command center.
+                </p>
+                <div class="space-y-3 mb-6">
+                    <div class="flex items-start space-x-2">
+                        <i data-lucide="check" class="text-green-400 mt-1" size="18"></i>
+                        <span class="text-sm text-gray-300">Clear communication skills</span>
+                    </div>
+                    <div class="flex items-start space-x-2">
+                        <i data-lucide="check" class="text-green-400 mt-1" size="18"></i>
+                        <span class="text-sm text-gray-300">Multi-tasking ability</span>
+                    </div>
+                    <div class="flex items-start space-x-2">
+                        <i data-lucide="check" class="text-green-400 mt-1" size="18"></i>
+                        <span class="text-sm text-gray-300">Calm under pressure</span>
+                    </div>
+                </div>
+                <button class="w-full neon-border px-6 py-3 rounded-lg font-semibold text-neon hover:bg-indigo-900/20 transition-all">
+                    Apply Now
+                </button>
+            </div>
+
+            <!-- Training Officer -->
+            <div class="glass-card rounded-xl p-8 hover:neon-border transition-all group">
+                <div class="flex items-start justify-between mb-4">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-14 h-14 rounded-lg bg-gradient-to-br from-indigo-500/20 to-purple-500/20 flex items-center justify-center group-hover:scale-110 transition-transform">
+                            <i data-lucide="graduation-cap" class="text-neon" size="28"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold text-gray-100">Training Officer</h3>
+                            <span class="status-open px-2 py-1 rounded text-xs font-semibold">OPEN</span>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-gray-400 mb-6">
+                    Instructors responsible for training programs, certification courses, and continuous professional development for all personnel.
+                </p>
+                <div class="space-y-3 mb-6">
+                    <div class="flex items-start space-x-2">
+                        <i data-lucide="check" class="text-green-400 mt-1" size="18"></i>
+                        <span class="text-sm text-gray-300">5+ years operational experience</span>
+                    </div>
+                    <div class="flex items-start space-x-2">
+                        <i data-lucide="check" class="text-green-400 mt-1" size="18"></i>
+                        <span class="text-sm text-gray-300">Teaching/mentoring experience</span>
+                    </div>
+                    <div class="flex items-start space-x-2">
+                        <i data-lucide="check" class="text-green-400 mt-1" size="18"></i>
+                        <span class="text-sm text-gray-300">Advanced certifications in multiple areas</span>
+                    </div>
+                </div>
+                <button class="w-full neon-border px-6 py-3 rounded-lg font-semibold text-neon hover:bg-indigo-900/20 transition-all">
+                    Apply Now
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Requirements -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="glass-card rounded-xl p-8 neon-border">
+            <h2 class="text-3xl font-bold text-neon-purple mb-6">General Requirements</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="space-y-4">
+                    <h3 class="text-xl font-semibold text-neon">Minimum Qualifications</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start space-x-2">
+                            <i data-lucide="circle-check-big" class="text-green-400 mt-1" size="20"></i>
+                            <span class="text-gray-300">Must be 18 years of age or older</span>
+                        </li>
+                        <li class="flex items-start space-x-2">
+                            <i data-lucide="circle-check-big" class="text-green-400 mt-1" size="20"></i>
+                            <span class="text-gray-300">Clean criminal background check</span>
+                        </li>
+                        <li class="flex items-start space-x-2">
+                            <i data-lucide="circle-check-big" class="text-green-400 mt-1" size="20"></i>
+                            <span class="text-gray-300">High school diploma or equivalent</span>
+                        </li>
+                        <li class="flex items-start space-x-2">
+                            <i data-lucide="circle-check-big" class="text-green-400 mt-1" size="20"></i>
+                            <span class="text-gray-300">Valid UK driving license (for field positions)</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="space-y-4">
+                    <h3 class="text-xl font-semibold text-neon">Desired Qualities</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start space-x-2">
+                            <i data-lucide="circle-check-big" class="text-purple-400 mt-1" size="20"></i>
+                            <span class="text-gray-300">Strong problem-solving abilities</span>
+                        </li>
+                        <li class="flex items-start space-x-2">
+                            <i data-lucide="circle-check-big" class="text-purple-400 mt-1" size="20"></i>
+                            <span class="text-gray-300">Team-oriented mindset</span>
+                        </li>
+                        <li class="flex items-start space-x-2">
+                            <i data-lucide="circle-check-big" class="text-purple-400 mt-1" size="20"></i>
+                            <span class="text-gray-300">Dedication to public service</span>
+                        </li>
+                        <li class="flex items-start space-x-2">
+                            <i data-lucide="circle-check-big" class="text-purple-400 mt-1" size="20"></i>
+                            <span class="text-gray-300">Ability to work under pressure</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="glass-card mt-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div class="space-y-4">
+                    <div class="flex items-center space-x-2">
+                        <i data-lucide="shield-check" class="text-neon"></i>
+                        <span class="text-lg font-bold hero-text">UKFR</span>
+                    </div>
+                    <p class="text-gray-400 text-sm">
+                        United Kingdom First Response - Elite tactical operations and emergency coordination.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-neon mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="index.html" class="text-gray-400 hover:text-neon transition-colors">Home</a></li>
+                        <li><a href="operations.html" class="text-gray-400 hover:text-neon transition-colors">Operations</a></li>
+                        <li><a href="rules.html" class="text-gray-400 hover:text-neon transition-colors">Rules</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-neon mb-4">Resources</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="applications.html" class="text-gray-400 hover:text-neon transition-colors">Applications</a></li>
+                        <li><a href="staff.html" class="text-gray-400 hover:text-neon transition-colors">Staff Team</a></li>
+                        <li><a href="support.html" class="text-gray-400 hover:text-neon transition-colors">Support</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-neon mb-4">Connect</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-neon transition-colors">
+                            <i data-lucide="twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-neon transition-colors">
+                            <i data-lucide="youtube"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-neon transition-colors">
+                            <i data-lucide="linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
+                <p>&copy; 2026 UKFR - United Kingdom First Response. All rights reserved.</p>
+                <p class="mt-2 md:mt-0">Tactical Operations Command</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+        
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>

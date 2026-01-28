@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staff - UKFR</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Fraunces:wght@600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        * {
+            font-family: 'DM Sans', sans-serif;
+        }
+        h1, h2, h3, h4 {
+            font-family: 'Fraunces', serif;
+        }
+        body {
+            background: radial-gradient(ellipse at top, #1a1a2e 0%, #0f0f1e 50%, #000000 100%);
+            min-height: 100vh;
+        }
+        .glass-card {
+            background: rgba(15, 15, 30, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(123, 141, 255, 0.3);
+            box-shadow: 0 8px 32px 0 rgba(123, 141, 255, 0.1);
+        }
+        .neon-border {
+            border: 2px solid rgba(123, 141, 255, 0.5);
+            box-shadow: 0 0 20px rgba(123, 141, 255, 0.3), inset 0 0 20px rgba(123, 141, 255, 0.1);
+        }
+        .text-neon {
+            color: #7b8dff;
+            text-shadow: 0 0 10px rgba(123, 141, 255, 0.5);
+        }
+        .text-neon-purple {
+            color: #9f6bff;
+            text-shadow: 0 0 10px rgba(159, 107, 255, 0.5);
+        }
+        .nav-link {
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        .nav-link:hover {
+            color: #7b8dff;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #7b8dff, #9f6bff);
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        .hero-text {
+            background: linear-gradient(135deg, #7b8dff 0%, #9f6bff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .rank-badge {
+            background: linear-gradient(135deg, #7b8dff 0%, #9f6bff 100%);
+            padding: 4px 12px;
+            border-radius: 999px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: white;
+        }
+    </style>
+</head>
+<body class="text-gray-100">
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 glass-card">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center space-x-2">
+                    <i data-lucide="shield-check" class="text-neon" stroke-width="2.5"></i>
+                    <span class="text-xl font-bold hero-text">UKFR</span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="nav-link text-gray-300 hover:text-neon">Home</a>
+                    <a href="operations.html" class="nav-link text-gray-300 hover:text-neon">Operations</a>
+                    <a href="rules.html" class="nav-link text-gray-300 hover:text-neon">Rules</a>
+                    <a href="applications.html" class="nav-link text-gray-300 hover:text-neon">Applications</a>
+                    <a href="staff.html" class="nav-link text-neon font-medium">Staff</a>
+                    <a href="support.html" class="nav-link text-gray-300 hover:text-neon">Support</a>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-gray-300">
+                        <i data-lucide="menu"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden glass-card mt-2 mx-4 rounded-lg">
+            <div class="flex flex-col space-y-2 p-4">
+                <a href="index.html" class="text-gray-300 hover:text-neon py-2">Home</a>
+                <a href="operations.html" class="text-gray-300 hover:text-neon py-2">Operations</a>
+                <a href="rules.html" class="text-gray-300 hover:text-neon py-2">Rules</a>
+                <a href="applications.html" class="text-gray-300 hover:text-neon py-2">Applications</a>
+                <a href="staff.html" class="text-neon font-medium py-2">Staff</a>
+                <a href="support.html" class="text-gray-300 hover:text-neon py-2">Support</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div class="text-center space-y-4">
+            <div class="inline-block glass-card px-4 py-2 rounded-full mb-2">
+                <span class="text-neon text-sm font-semibold tracking-wider">LEADERSHIP</span>
+            </div>
+            <h1 class="text-5xl md:text-6xl font-bold hero-text">Command Structure</h1>
+            <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+                Meet the leadership team driving excellence in tactical operations and emergency response
+            </p>
+        </div>
+    </section>
+
+    <!-- Executive Command -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <h2 class="text-3xl font-bold text-neon-purple mb-8">Executive Command</h2>
+        <div class="grid md:grid-cols-2 gap-8">
+            <!-- Commissioner -->
+            <div class="glass-card rounded-xl p-8 neon-border hover:scale-105 transition-transform">
+                <div class="flex items-start space-x-6">
+                    <div class="w-24 h-24 rounded-lg bg-gradient-to-br from-indigo-500/30 to-purple-500/30 flex items-center justify-center flex-shrink-0">
+                        <i data-lucide="crown" class="text-neon" size="40"></i>
+                    </div>
+                    <div class="flex-1">
+                        <div class="flex items-start justify-between mb-2">
+                            <div>
+                                <h3 class="text-2xl font-bold text-gray-100">Marcus Blackwood</h3>
+                                <span class="rank-badge">COMMISSIONER</span>
+                            </div>
+                        </div>
+                        <p class="text-gray-400 mt-4">
+                            Overall command authority for UKFR operations. 25 years of law enforcement experience with specialization in tactical coordination and crisis management.
+                        </p>
+                        <div class="flex items-center space-x-4 mt-4 text-sm text-gray-500">
+                            <span class="flex items-center space-x-1">
+                                <i data-lucide="shield-check" size="16"></i>
+                                <span>Active Since 2001</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Deputy Commissioner -->
+            <div class="glass-card rounded-xl p-8 neon-border hover:scale-105 transition-transform">
+                <div class="flex items-start space-x-6">
+                    <div class="w-24 h-24 rounded-lg bg-gradient-to-br from-indigo-500/30 to-purple-500/30 flex items-center justify-center flex-shrink-0">
+                        <i data-lucide="star" class="text-neon" size="40"></i>
+                    </div>
+                    <div class="flex-1">
+                        <div class="flex items-start justify-between mb-2">
+                            <div>
+                                <h3 class="text-2xl font-bold text-gray-100">Sarah Chen</h3>
+                                <span class="rank-badge">DEPUTY COMMISSIONER</span>
+                            </div>
+                        </div>
+                        <p class="text-gray-400 mt-4">
+                            Second-in-command overseeing daily operations and strategic planning. Expert in inter-agency coordination and emergency response protocols.
+                        </p>
+                        <div class="flex items-center space-x-4 mt-4 text-sm text-gray-500">
+                            <span class="flex items-center space-x-1">
+                                <i data-lucide="shield-check" size="16"></i>
+                                <span>Active Since 2005</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Department Heads -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <h2 class="text-3xl font-bold text-neon-purple mb-8">Department Heads</h2>
+        <div class="grid md:grid-cols-3 gap-6">
+            <!-- Chief of Operations -->
+            <div class="glass-card rounded-xl p-6 hover:neon-border transition-all">
+                <div class="flex items-center space-x-3 mb-4">
+                    <div class="w-16 h-16 rounded-lg bg-gradient-to-br from-indigo-500/20 to-purple-500/20 flex items-center justify-center">
+                        <i data-lucide="radio" class="text-neon" size="32"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-100">James Mitchell</h3>
+                        <span class="text-xs text-neon-purple font-semibold">CHIEF OF OPERATIONS</span>
+                    </div>
+                </div>
+                <p class="text-gray-400 text-sm mb-3">
+                    Tactical deployment and field operations management across all sectors.
+                </p>
+                <div class="text-xs text-gray-500">18 years experience</div>
+            </div>
+
+            <!-- Chief of Training -->
+            <div class="glass-card rounded-xl p-6 hover:neon-border transition-all">
+                <div class="flex items-center space-x-3 mb-4">
+                    <div class="w-16 h-16 rounded-lg bg-gradient-to-br from-indigo-500/20 to-purple-500/20 flex items-center justify-center">
+                        <i data-lucide="graduation-cap" class="text-neon" size="32"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-100">David Torres</h3>
+                        <span class="text-xs text-neon-purple font-semibold">CHIEF OF TRAINING</span>
+                    </div>
+                </div>
+                <p class="text-gray-400 text-sm mb-3">
+                    Development and delivery of all training programs and certifications.
+                </p>
+                <div class="text-xs text-gray-500">20 years experience</div>
+            </div>
+
+            <!-- Chief of Intelligence -->
+            <div class="glass-card rounded-xl p-6 hover:neon-border transition-all">
+                <div class="flex items-center space-x-3 mb-4">
+                    <div class="w-16 h-16 rounded-lg bg-gradient-to-br from-indigo-500/20 to-purple-500/20 flex items-center justify-center">
+                        <i data-lucide="brain" class="text-neon" size="32"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-100">Elena Volkov</h3>
+                        <span class="text-xs text-neon-purple font-semibold">CHIEF OF INTELLIGENCE</span>
+                    </div>
+                </div>
+                <p class="text-gray-400 text-sm mb-3">
+                    Intelligence gathering, threat assessment, and strategic analysis.
+                </p>
+                <div class="text-xs text-gray-500">15 years experience</div>
+            </div>
+
+            <!-- Chief Technology Officer -->
+            <div class="glass-card rounded-xl p-6 hover:neon-border transition-all">
+                <div class="flex items-center space-x-3 mb-4">
+                    <div class="w-16 h-16 rounded-lg bg-gradient-to-br from-indigo-500/20 to-purple-500/20 flex items-center justify-center">
+                        <i data-lucide="laptop" class="text-neon" size="32"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-100">Aisha Patel</h3>
+                        <span class="text-xs text-neon-purple font-semibold">CHIEF TECHNOLOGY OFFICER</span>
+                    </div>
+                </div>
+                <p class="text-gray-400 text-sm mb-3">
+                    Technology infrastructure, communications systems, and data security.
+                </p>
+                <div class="text-xs text-gray-500">12 years experience</div>
+            </div>
+
+            <!-- Chief Medical Officer -->
+            <div class="glass-card rounded-xl p-6 hover:neon-border transition-all">
+                <div class="flex items-center space-x-3 mb-4">
+                    <div class="w-16 h-16 rounded-lg bg-gradient-to-br from-indigo-500/20 to-purple-500/20 flex items-center justify-center">
+                        <i data-lucide="heart-pulse" class="text-neon" size="32"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-100">Dr. Robert Hayes</h3>
+                        <span class="text-xs text-neon-purple font-semibold">CHIEF MEDICAL OFFICER</span>
+                    </div>
+                </div>
+                <p class="text-gray-400 text-sm mb-3">
+                    Emergency medical services, health protocols, and wellness programs.
+                </p>
+                <div class="text-xs text-gray-500">22 years experience</div>
+            </div>
+
+            <!-- Chief Legal Counsel -->
+            <div class="glass-card rounded-xl p-6 hover:neon-border transition-all">
+                <div class="flex items-center space-x-3 mb-4">
+                    <div class="w-16 h-16 rounded-lg bg-gradient-to-br from-indigo-500/20 to-purple-500/20 flex items-center justify-center">
+                        <i data-lucide="scale" class="text-neon" size="32"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-100">Thomas Bradford</h3>
+                        <span class="text-xs text-neon-purple font-semibold">CHIEF LEGAL COUNSEL</span>
+                    </div>
+                </div>
+                <p class="text-gray-400 text-sm mb-3">
+                    Legal compliance, policy development, and regulatory oversight.
+                </p>
+                <div class="text-xs text-gray-500">16 years experience</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sector Commanders -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <h2 class="text-3xl font-bold text-neon-purple mb-8">Sector Commanders</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- London Metro -->
+            <div class="glass-card rounded-xl p-6 hover:neon-border transition-all">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-lg font-bold text-gray-100">London Metro</h3>
+                    <i data-lucide="map-pin" class="text-neon"></i>
+                </div>
+                <div class="space-y-2">
+                    <p class="text-gray-300 font-semibold">Cdr. Victoria Stone</p>
+                    <p class="text-sm text-gray-400">Central London tactical operations and rapid response coordination</p>
+                    <div class="flex items-center space-x-2 text-xs text-gray-500 mt-3">
+                        <i data-lucide="users" size="14"></i>
+                        <span>42 Active Units</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Manchester -->
+            <div class="glass-card rounded-xl p-6 hover:neon-border transition-all">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-lg font-bold text-gray-100">Manchester</h3>
+                    <i data-lucide="map-pin" class="text-neon"></i>
+                </div>
+                <div class="space-y-2">
+                    <p class="text-gray-300 font-semibold">Cdr. Michael O'Brien</p>
+                    <p class="text-sm text-gray-400">Northern sector strategic command and inter-city coordination</p>
+                    <div class="flex items-center space-x-2 text-xs text-gray-500 mt-3">
+                        <i data-lucide="users" size="14"></i>
+                        <span>28 Active Units</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Birmingham -->
+            <div class="glass-card rounded-xl p-6 hover:neon-border transition-all">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-lg font-bold text-gray-100">Birmingham</h3>
+                    <i data-lucide="map-pin" class="text-neon"></i>
+                </div>
+                <div class="space-y-2">
+                    <p class="text-gray-300 font-semibold">Cdr. Jamal Williams</p>
+                    <p class="text-sm text-gray-400">Midlands operational oversight and community liaison</p>
+                    <div class="flex items-center space-x-2 text-xs text-gray-500 mt-3">
+                        <i data-lucide="users" size="14"></i>
+                        <span>19 Active Units</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scotland -->
+            <div class="glass-card rounded-xl p-6 hover:neon-border transition-all">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-lg font-bold text-gray-100">Scotland</h3>
+                    <i data-lucide="map-pin" class="text-neon"></i>
+                </div>
+                <div class="space-y-2">
+                    <p class="text-gray-300 font-semibold">Cdr. Fiona MacLeod</p>
+                    <p class="text-sm text-gray-400">Scottish operations with emphasis on rural deployment</p>
+                    <div class="flex items-center space-x-2 text-xs text-gray-500 mt-3">
+                        <i data-lucide="users" size="14"></i>
+                        <span>15 Active Units</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Wales -->
+            <div class="glass-card rounded-xl p-6 hover:neon-border transition-all">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-lg font-bold text-gray-100">Wales</h3>
+                    <i data-lucide="map-pin" class="text-neon"></i>
+                </div>
+                <div class="space-y-2">
+                    <p class="text-gray-300 font-semibold">Cdr. Dylan Evans</p>
+                    <p class="text-sm text-gray-400">Welsh territory coverage and mountain rescue integration</p>
+                    <div class="flex items-center space-x-2 text-xs text-gray-500 mt-3">
+                        <i data-lucide="users" size="14"></i>
+                        <span>12 Active Units</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- South Coast -->
+            <div class="glass-card rounded-xl p-6 hover:neon-border transition-all">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-lg font-bold text-gray-100">South Coast</h3>
+                    <i data-lucide="map-pin" class="text-neon"></i>
+                </div>
+                <div class="space-y-2">
+                    <p class="text-gray-300 font-semibold">Cdr. Amanda Foster</p>
+                    <p class="text-sm text-gray-400">Coastal operations and maritime emergency response</p>
+                    <div class="flex items-center space-x-2 text-xs text-gray-500 mt-3">
+                        <i data-lucide="users" size="14"></i>
+                        <span>11 Active Units</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="glass-card rounded-xl p-12 neon-border text-center">
+            <i data-lucide="users-round" class="text-neon mx-auto mb-6" size="56"></i>
+            <h2 class="text-4xl font-bold hero-text mb-4">Join Our Team</h2>
+            <p class="text-gray-300 max-w-2xl mx-auto mb-8">
+                Interested in working alongside these exceptional leaders? We're always looking for dedicated individuals to join our ranks.
+            </p>
+            <a href="applications.html" class="inline-block neon-border px-8 py-3 rounded-lg font-semibold text-neon hover:bg-indigo-900/20 transition-all">
+                View Open Positions
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="glass-card mt-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div class="space-y-4">
+                    <div class="flex items-center space-x-2">
+                        <i data-lucide="shield-check" class="text-neon"></i>
+                        <span class="text-lg font-bold hero-text">UKFR</span>
+                    </div>
+                    <p class="text-gray-400 text-sm">
+                        United Kingdom First Response - Elite tactical operations and emergency coordination.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-neon mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="index.html" class="text-gray-400 hover:text-neon transition-colors">Home</a></li>
+                        <li><a href="operations.html" class="text-gray-400 hover:text-neon transition-colors">Operations</a></li>
+                        <li><a href="rules.html" class="text-gray-400 hover:text-neon transition-colors">Rules</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-neon mb-4">Resources</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="applications.html" class="text-gray-400 hover:text-neon transition-colors">Applications</a></li>
+                        <li><a href="staff.html" class="text-gray-400 hover:text-neon transition-colors">Staff Team</a></li>
+                        <li><a href="support.html" class="text-gray-400 hover:text-neon transition-colors">Support</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-neon mb-4">Connect</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-neon transition-colors">
+                            <i data-lucide="twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-neon transition-colors">
+                            <i data-lucide="youtube"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-neon transition-colors">
+                            <i data-lucide="linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
+                <p>&copy; 2026 UKFR - United Kingdom First Response. All rights reserved.</p>
+                <p class="mt-2 md:mt-0">Tactical Operations Command</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+        
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
