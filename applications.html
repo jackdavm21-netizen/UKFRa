@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Fraunces:wght@600;700&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
     <style>
         * {
             font-family: 'DM Sans', sans-serif;
@@ -74,6 +74,39 @@
             border: 1px solid rgba(107, 114, 128, 0.5);
             color: #9ca3af;
         }
+        .application-form {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+        }
+        .application-form.active {
+            max-height: 3000px;
+        }
+        input, textarea {
+            background: rgba(15, 15, 30, 0.8);
+            border: 1px solid rgba(123, 141, 255, 0.3);
+            color: #fff;
+            padding: 0.75rem;
+            border-radius: 0.5rem;
+            width: 100%;
+            transition: border-color 0.3s;
+        }
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: #7b8dff;
+            box-shadow: 0 0 10px rgba(123, 141, 255, 0.3);
+        }
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+        .copy-success {
+            animation: fadeIn 0.3s ease;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
     </style>
 </head>
 <body class="text-gray-100">
@@ -120,312 +153,395 @@
             </div>
             <h1 class="text-5xl md:text-6xl font-bold hero-text">Join Our Forces</h1>
             <p class="text-xl text-gray-400 max-w-3xl mx-auto">
-                Apply to become part of the elite UKFR tactical response team. Multiple positions and specializations available.
+                Click on any position to fill out an application form. Once complete, copy and submit your application.
             </p>
-        </div>
-    </section>
-
-    <!-- Application Process -->
-    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div class="glass-card rounded-xl p-8 neon-border mb-12">
-            <h2 class="text-3xl font-bold text-neon-purple mb-6">Application Process</h2>
-            <div class="grid md:grid-cols-4 gap-6">
-                <div class="text-center space-y-3">
-                    <div class="w-16 h-16 rounded-full bg-gradient-to-br from-indigo-500/20 to-purple-500/20 flex items-center justify-center mx-auto">
-                        <span class="text-2xl font-bold text-neon">1</span>
-                    </div>
-                    <h3 class="font-semibold text-gray-100">Submit Application</h3>
-                    <p class="text-sm text-gray-400">Complete the application form for your desired position</p>
-                </div>
-                <div class="text-center space-y-3">
-                    <div class="w-16 h-16 rounded-full bg-gradient-to-br from-indigo-500/20 to-purple-500/20 flex items-center justify-center mx-auto">
-                        <span class="text-2xl font-bold text-neon">2</span>
-                    </div>
-                    <h3 class="font-semibold text-gray-100">Initial Review</h3>
-                    <p class="text-sm text-gray-400">Our recruitment team reviews your application</p>
-                </div>
-                <div class="text-center space-y-3">
-                    <div class="w-16 h-16 rounded-full bg-gradient-to-br from-indigo-500/20 to-purple-500/20 flex items-center justify-center mx-auto">
-                        <span class="text-2xl font-bold text-neon">3</span>
-                    </div>
-                    <h3 class="font-semibold text-gray-100">Interview</h3>
-                    <p class="text-sm text-gray-400">Attend interview with command staff</p>
-                </div>
-                <div class="text-center space-y-3">
-                    <div class="w-16 h-16 rounded-full bg-gradient-to-br from-indigo-500/20 to-purple-500/20 flex items-center justify-center mx-auto">
-                        <span class="text-2xl font-bold text-neon">4</span>
-                    </div>
-                    <h3 class="font-semibold text-gray-100">Training</h3>
-                    <p class="text-sm text-gray-400">Complete mandatory training program</p>
-                </div>
-            </div>
         </div>
     </section>
 
     <!-- Application Categories -->
     <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <h2 class="text-3xl font-bold text-neon-purple mb-8">Open Positions</h2>
-        <div class="grid md:grid-cols-2 gap-8">
-            <!-- Patrol Officer -->
-            <div class="glass-card rounded-xl p-8 hover:neon-border transition-all group">
-                <div class="flex items-start justify-between mb-4">
-                    <div class="flex items-center space-x-3">
-                        <div class="w-14 h-14 rounded-lg bg-gradient-to-br from-indigo-500/20 to-purple-500/20 flex items-center justify-center group-hover:scale-110 transition-transform">
-                            <i data-lucide="shield" class="text-neon" size="28"></i>
+        <div class="space-y-6">
+            
+            <!-- Patrol Officer Application -->
+            <div class="glass-card rounded-xl overflow-hidden">
+                <div class="p-6 cursor-pointer hover:neon-border transition-all" onclick="toggleApplication('patrol')">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-14 h-14 rounded-lg bg-gradient-to-br from-indigo-500/20 to-purple-500/20 flex items-center justify-center">
+                                <i data-lucide="shield" class="text-neon" size="28"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-bold text-gray-100">Patrol Officer</h3>
+                                <p class="text-gray-400 text-sm">Click to apply</p>
+                            </div>
                         </div>
+                        <div class="flex items-center space-x-4">
+                            <span class="status-open px-3 py-1 rounded text-xs font-semibold">OPEN</span>
+                            <i data-lucide="chevron-down" id="patrol-icon" class="text-neon transition-transform"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="patrol-form" class="application-form">
+                    <div class="p-6 border-t border-gray-700 space-y-4">
+                        <h4 class="text-xl font-bold text-neon mb-4">Patrol Officer Application</h4>
+                        
                         <div>
-                            <h3 class="text-2xl font-bold text-gray-100">Patrol Officer</h3>
-                            <span class="status-open px-2 py-1 rounded text-xs font-semibold">OPEN</span>
+                            <label class="block text-gray-300 mb-2 font-semibold">Full Name *</label>
+                            <input type="text" id="patrol-name" placeholder="Enter your full name" required>
                         </div>
+                        
+                        <div>
+                            <label class="block text-gray-300 mb-2 font-semibold">Discord Username *</label>
+                            <input type="text" id="patrol-discord" placeholder="username#0000" required>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-gray-300 mb-2 font-semibold">Age *</label>
+                            <input type="number" id="patrol-age" placeholder="18+" required>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-gray-300 mb-2 font-semibold">Previous Law Enforcement Experience</label>
+                            <textarea id="patrol-experience" placeholder="Describe any relevant experience..."></textarea>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-gray-300 mb-2 font-semibold">Why do you want to join UKFR? *</label>
+                            <textarea id="patrol-why" placeholder="Tell us your motivation..." required></textarea>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-gray-300 mb-2 font-semibold">What makes you a good fit for Patrol Officer? *</label>
+                            <textarea id="patrol-fit" placeholder="Describe your skills and qualities..." required></textarea>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-gray-300 mb-2 font-semibold">Availability (hours per week) *</label>
+                            <input type="text" id="patrol-availability" placeholder="e.g., 20-30 hours" required>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-gray-300 mb-2 font-semibold">Do you have a clean driving record? *</label>
+                            <select id="patrol-driving" class="w-full bg-gray-900 border border-indigo-500/30 text-white p-3 rounded-lg">
+                                <option value="">Select...</option>
+                                <option value="Yes">Yes</option>
+                                <option value="No">No</option>
+                            </select>
+                        </div>
+                        
+                        <button onclick="copyApplication('patrol')" class="w-full neon-border px-6 py-3 rounded-lg font-semibold text-neon hover:bg-indigo-900/20 transition-all mt-6">
+                            <i data-lucide="copy" class="inline mr-2" size="18"></i>
+                            Copy Application
+                        </button>
+                        <div id="patrol-success" class="hidden text-green-400 text-center mt-2">✓ Application copied to clipboard!</div>
                     </div>
                 </div>
-                <p class="text-gray-400 mb-6">
-                    Front-line response officers conducting routine patrols, traffic enforcement, and initial incident response. Entry-level position with comprehensive training provided.
-                </p>
-                <div class="space-y-3 mb-6">
-                    <div class="flex items-start space-x-2">
-                        <i data-lucide="check" class="text-green-400 mt-1" size="18"></i>
-                        <span class="text-sm text-gray-300">Clean driving record required</span>
-                    </div>
-                    <div class="flex items-start space-x-2">
-                        <i data-lucide="check" class="text-green-400 mt-1" size="18"></i>
-                        <span class="text-sm text-gray-300">Basic first aid certification</span>
-                    </div>
-                    <div class="flex items-start space-x-2">
-                        <i data-lucide="check" class="text-green-400 mt-1" size="18"></i>
-                        <span class="text-sm text-gray-300">Excellent communication skills</span>
-                    </div>
-                </div>
-                <button class="w-full neon-border px-6 py-3 rounded-lg font-semibold text-neon hover:bg-indigo-900/20 transition-all">
-                    Apply Now
-                </button>
             </div>
 
-            <!-- Detective -->
-            <div class="glass-card rounded-xl p-8 hover:neon-border transition-all group">
-                <div class="flex items-start justify-between mb-4">
-                    <div class="flex items-center space-x-3">
-                        <div class="w-14 h-14 rounded-lg bg-gradient-to-br from-indigo-500/20 to-purple-500/20 flex items-center justify-center group-hover:scale-110 transition-transform">
-                            <i data-lucide="search" class="text-neon" size="28"></i>
+            <!-- Detective Application -->
+            <div class="glass-card rounded-xl overflow-hidden">
+                <div class="p-6 cursor-pointer hover:neon-border transition-all" onclick="toggleApplication('detective')">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-14 h-14 rounded-lg bg-gradient-to-br from-indigo-500/20 to-purple-500/20 flex items-center justify-center">
+                                <i data-lucide="search" class="text-neon" size="28"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-bold text-gray-100">Detective</h3>
+                                <p class="text-gray-400 text-sm">Click to apply</p>
+                            </div>
                         </div>
+                        <div class="flex items-center space-x-4">
+                            <span class="status-open px-3 py-1 rounded text-xs font-semibold">OPEN</span>
+                            <i data-lucide="chevron-down" id="detective-icon" class="text-neon transition-transform"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="detective-form" class="application-form">
+                    <div class="p-6 border-t border-gray-700 space-y-4">
+                        <h4 class="text-xl font-bold text-neon mb-4">Detective Application</h4>
+                        
                         <div>
-                            <h3 class="text-2xl font-bold text-gray-100">Detective</h3>
-                            <span class="status-open px-2 py-1 rounded text-xs font-semibold">OPEN</span>
+                            <label class="block text-gray-300 mb-2 font-semibold">Full Name *</label>
+                            <input type="text" id="detective-name" placeholder="Enter your full name" required>
                         </div>
+                        
+                        <div>
+                            <label class="block text-gray-300 mb-2 font-semibold">Discord Username *</label>
+                            <input type="text" id="detective-discord" placeholder="username#0000" required>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-gray-300 mb-2 font-semibold">Age *</label>
+                            <input type="number" id="detective-age" placeholder="18+" required>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-gray-300 mb-2 font-semibold">Years of Patrol Experience *</label>
+                            <input type="text" id="detective-patrol-exp" placeholder="Minimum 2 years required" required>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-gray-300 mb-2 font-semibold">Investigative Experience</label>
+                            <textarea id="detective-investigation" placeholder="Describe any investigative work you've done..."></textarea>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-gray-300 mb-2 font-semibold">Why do you want to become a Detective? *</label>
+                            <textarea id="detective-why" placeholder="Tell us your motivation..." required></textarea>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-gray-300 mb-2 font-semibold">Describe your analytical and problem-solving skills *</label>
+                            <textarea id="detective-skills" placeholder="Provide specific examples..." required></textarea>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-gray-300 mb-2 font-semibold">Scenario: You're investigating a robbery. What are your first steps?</label>
+                            <textarea id="detective-scenario" placeholder="Describe your approach..."></textarea>
+                        </div>
+                        
+                        <button onclick="copyApplication('detective')" class="w-full neon-border px-6 py-3 rounded-lg font-semibold text-neon hover:bg-indigo-900/20 transition-all mt-6">
+                            <i data-lucide="copy" class="inline mr-2" size="18"></i>
+                            Copy Application
+                        </button>
+                        <div id="detective-success" class="hidden text-green-400 text-center mt-2">✓ Application copied to clipboard!</div>
                     </div>
                 </div>
-                <p class="text-gray-400 mb-6">
-                    Investigative specialists conducting complex case work, evidence analysis, and criminal investigations. Experience in law enforcement required.
-                </p>
-                <div class="space-y-3 mb-6">
-                    <div class="flex items-start space-x-2">
-                        <i data-lucide="check" class="text-green-400 mt-1" size="18"></i>
-                        <span class="text-sm text-gray-300">2+ years patrol experience</span>
-                    </div>
-                    <div class="flex items-start space-x-2">
-                        <i data-lucide="check" class="text-green-400 mt-1" size="18"></i>
-                        <span class="text-sm text-gray-300">Analytical and detail-oriented</span>
-                    </div>
-                    <div class="flex items-start space-x-2">
-                        <i data-lucide="check" class="text-green-400 mt-1" size="18"></i>
-                        <span class="text-sm text-gray-300">Report writing proficiency</span>
-                    </div>
-                </div>
-                <button class="w-full neon-border px-6 py-3 rounded-lg font-semibold text-neon hover:bg-indigo-900/20 transition-all">
-                    Apply Now
-                </button>
             </div>
 
-            <!-- Tactical Unit -->
-            <div class="glass-card rounded-xl p-8 hover:neon-border transition-all group">
-                <div class="flex items-start justify-between mb-4">
-                    <div class="flex items-center space-x-3">
-                        <div class="w-14 h-14 rounded-lg bg-gradient-to-br from-indigo-500/20 to-purple-500/20 flex items-center justify-center group-hover:scale-110 transition-transform">
-                            <i data-lucide="target" class="text-neon" size="28"></i>
+            <!-- Tactical Unit Application -->
+            <div class="glass-card rounded-xl overflow-hidden">
+                <div class="p-6 cursor-pointer hover:neon-border transition-all" onclick="toggleApplication('tactical')">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-14 h-14 rounded-lg bg-gradient-to-br from-indigo-500/20 to-purple-500/20 flex items-center justify-center">
+                                <i data-lucide="target" class="text-neon" size="28"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-bold text-gray-100">Tactical Unit</h3>
+                                <p class="text-gray-400 text-sm">Click to apply</p>
+                            </div>
                         </div>
+                        <div class="flex items-center space-x-4">
+                            <span class="status-open px-3 py-1 rounded text-xs font-semibold">OPEN</span>
+                            <i data-lucide="chevron-down" id="tactical-icon" class="text-neon transition-transform"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="tactical-form" class="application-form">
+                    <div class="p-6 border-t border-gray-700 space-y-4">
+                        <h4 class="text-xl font-bold text-neon mb-4">Tactical Unit Application</h4>
+                        
                         <div>
-                            <h3 class="text-2xl font-bold text-gray-100">Tactical Unit</h3>
-                            <span class="status-open px-2 py-1 rounded text-xs font-semibold">OPEN</span>
+                            <label class="block text-gray-300 mb-2 font-semibold">Full Name *</label>
+                            <input type="text" id="tactical-name" placeholder="Enter your full name" required>
                         </div>
+                        
+                        <div>
+                            <label class="block text-gray-300 mb-2 font-semibold">Discord Username *</label>
+                            <input type="text" id="tactical-discord" placeholder="username#0000" required>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-gray-300 mb-2 font-semibold">Age *</label>
+                            <input type="number" id="tactical-age" placeholder="18+" required>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-gray-300 mb-2 font-semibold">Years of Active Duty Experience *</label>
+                            <input type="text" id="tactical-duty-exp" placeholder="Minimum 3 years required" required>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-gray-300 mb-2 font-semibold">Advanced Tactical Certifications</label>
+                            <textarea id="tactical-certs" placeholder="List any tactical certifications or specialized training..."></textarea>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-gray-300 mb-2 font-semibold">Why do you want to join the Tactical Unit? *</label>
+                            <textarea id="tactical-why" placeholder="Tell us your motivation..." required></textarea>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-gray-300 mb-2 font-semibold">Describe your experience with high-pressure situations *</label>
+                            <textarea id="tactical-pressure" placeholder="Provide specific examples..." required></textarea>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-gray-300 mb-2 font-semibold">Physical Fitness Level (1-10)</label>
+                            <input type="number" id="tactical-fitness" min="1" max="10" placeholder="Rate yourself 1-10">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-gray-300 mb-2 font-semibold">Team Leadership Experience</label>
+                            <textarea id="tactical-leadership" placeholder="Describe any team leadership roles..."></textarea>
+                        </div>
+                        
+                        <button onclick="copyApplication('tactical')" class="w-full neon-border px-6 py-3 rounded-lg font-semibold text-neon hover:bg-indigo-900/20 transition-all mt-6">
+                            <i data-lucide="copy" class="inline mr-2" size="18"></i>
+                            Copy Application
+                        </button>
+                        <div id="tactical-success" class="hidden text-green-400 text-center mt-2">✓ Application copied to clipboard!</div>
                     </div>
                 </div>
-                <p class="text-gray-400 mb-6">
-                    Elite response team for high-risk situations. Advanced weapons training, hostage negotiation, and crisis intervention specialist roles available.
-                </p>
-                <div class="space-y-3 mb-6">
-                    <div class="flex items-start space-x-2">
-                        <i data-lucide="check" class="text-green-400 mt-1" size="18"></i>
-                        <span class="text-sm text-gray-300">3+ years active duty experience</span>
-                    </div>
-                    <div class="flex items-start space-x-2">
-                        <i data-lucide="check" class="text-green-400 mt-1" size="18"></i>
-                        <span class="text-sm text-gray-300">Advanced tactical certification</span>
-                    </div>
-                    <div class="flex items-start space-x-2">
-                        <i data-lucide="check" class="text-green-400 mt-1" size="18"></i>
-                        <span class="text-sm text-gray-300">Excellent physical fitness</span>
-                    </div>
-                </div>
-                <button class="w-full neon-border px-6 py-3 rounded-lg font-semibold text-neon hover:bg-indigo-900/20 transition-all">
-                    Apply Now
-                </button>
             </div>
 
-            <!-- K9 Handler -->
-            <div class="glass-card rounded-xl p-8 hover:neon-border transition-all group">
-                <div class="flex items-start justify-between mb-4">
-                    <div class="flex items-center space-x-3">
-                        <div class="w-14 h-14 rounded-lg bg-gradient-to-br from-indigo-500/20 to-purple-500/20 flex items-center justify-center group-hover:scale-110 transition-transform">
-                            <i data-lucide="dog" class="text-neon" size="28"></i>
+            <!-- Dispatcher Application -->
+            <div class="glass-card rounded-xl overflow-hidden">
+                <div class="p-6 cursor-pointer hover:neon-border transition-all" onclick="toggleApplication('dispatcher')">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-14 h-14 rounded-lg bg-gradient-to-br from-indigo-500/20 to-purple-500/20 flex items-center justify-center">
+                                <i data-lucide="radio" class="text-neon" size="28"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-bold text-gray-100">Dispatcher</h3>
+                                <p class="text-gray-400 text-sm">Click to apply</p>
+                            </div>
                         </div>
+                        <div class="flex items-center space-x-4">
+                            <span class="status-open px-3 py-1 rounded text-xs font-semibold">OPEN</span>
+                            <i data-lucide="chevron-down" id="dispatcher-icon" class="text-neon transition-transform"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="dispatcher-form" class="application-form">
+                    <div class="p-6 border-t border-gray-700 space-y-4">
+                        <h4 class="text-xl font-bold text-neon mb-4">Dispatcher Application</h4>
+                        
                         <div>
-                            <h3 class="text-2xl font-bold text-gray-100">K9 Handler</h3>
-                            <span class="status-closed px-2 py-1 rounded text-xs font-semibold">CLOSED</span>
+                            <label class="block text-gray-300 mb-2 font-semibold">Full Name *</label>
+                            <input type="text" id="dispatcher-name" placeholder="Enter your full name" required>
                         </div>
+                        
+                        <div>
+                            <label class="block text-gray-300 mb-2 font-semibold">Discord Username *</label>
+                            <input type="text" id="dispatcher-discord" placeholder="username#0000" required>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-gray-300 mb-2 font-semibold">Age *</label>
+                            <input type="number" id="dispatcher-age" placeholder="18+" required>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-gray-300 mb-2 font-semibold">Communication Experience</label>
+                            <textarea id="dispatcher-comm" placeholder="Describe any relevant communication or dispatch experience..."></textarea>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-gray-300 mb-2 font-semibold">Why do you want to be a Dispatcher? *</label>
+                            <textarea id="dispatcher-why" placeholder="Tell us your motivation..." required></textarea>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-gray-300 mb-2 font-semibold">Describe your multi-tasking abilities *</label>
+                            <textarea id="dispatcher-multitask" placeholder="Provide specific examples..." required></textarea>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-gray-300 mb-2 font-semibold">How do you handle stressful situations? *</label>
+                            <textarea id="dispatcher-stress" placeholder="Describe your approach..." required></textarea>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-gray-300 mb-2 font-semibold">Availability (hours per week) *</label>
+                            <input type="text" id="dispatcher-availability" placeholder="e.g., 20-30 hours" required>
+                        </div>
+                        
+                        <button onclick="copyApplication('dispatcher')" class="w-full neon-border px-6 py-3 rounded-lg font-semibold text-neon hover:bg-indigo-900/20 transition-all mt-6">
+                            <i data-lucide="copy" class="inline mr-2" size="18"></i>
+                            Copy Application
+                        </button>
+                        <div id="dispatcher-success" class="hidden text-green-400 text-center mt-2">✓ Application copied to clipboard!</div>
                     </div>
                 </div>
-                <p class="text-gray-400 mb-6">
-                    Specialized canine unit handlers for tracking, detection, and apprehension operations. Comprehensive K9 training program included.
-                </p>
-                <div class="space-y-3 mb-6">
-                    <div class="flex items-start space-x-2">
-                        <i data-lucide="check" class="text-green-400 mt-1" size="18"></i>
-                        <span class="text-sm text-gray-300">2+ years field experience</span>
-                    </div>
-                    <div class="flex items-start space-x-2">
-                        <i data-lucide="check" class="text-green-400 mt-1" size="18"></i>
-                        <span class="text-sm text-gray-300">Animal handling experience preferred</span>
-                    </div>
-                    <div class="flex items-start space-x-2">
-                        <i data-lucide="check" class="text-green-400 mt-1" size="18"></i>
-                        <span class="text-sm text-gray-300">Patience and dedication required</span>
-                    </div>
-                </div>
-                <button class="w-full glass-card px-6 py-3 rounded-lg font-semibold text-gray-500 cursor-not-allowed">
-                    Currently Closed
-                </button>
             </div>
 
-            <!-- Dispatcher -->
-            <div class="glass-card rounded-xl p-8 hover:neon-border transition-all group">
-                <div class="flex items-start justify-between mb-4">
-                    <div class="flex items-center space-x-3">
-                        <div class="w-14 h-14 rounded-lg bg-gradient-to-br from-indigo-500/20 to-purple-500/20 flex items-center justify-center group-hover:scale-110 transition-transform">
-                            <i data-lucide="radio" class="text-neon" size="28"></i>
+            <!-- Training Officer Application -->
+            <div class="glass-card rounded-xl overflow-hidden">
+                <div class="p-6 cursor-pointer hover:neon-border transition-all" onclick="toggleApplication('training')">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-14 h-14 rounded-lg bg-gradient-to-br from-indigo-500/20 to-purple-500/20 flex items-center justify-center">
+                                <i data-lucide="graduation-cap" class="text-neon" size="28"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-bold text-gray-100">Training Officer</h3>
+                                <p class="text-gray-400 text-sm">Click to apply</p>
+                            </div>
                         </div>
+                        <div class="flex items-center space-x-4">
+                            <span class="status-open px-3 py-1 rounded text-xs font-semibold">OPEN</span>
+                            <i data-lucide="chevron-down" id="training-icon" class="text-neon transition-transform"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="training-form" class="application-form">
+                    <div class="p-6 border-t border-gray-700 space-y-4">
+                        <h4 class="text-xl font-bold text-neon mb-4">Training Officer Application</h4>
+                        
                         <div>
-                            <h3 class="text-2xl font-bold text-gray-100">Dispatcher</h3>
-                            <span class="status-open px-2 py-1 rounded text-xs font-semibold">OPEN</span>
+                            <label class="block text-gray-300 mb-2 font-semibold">Full Name *</label>
+                            <input type="text" id="training-name" placeholder="Enter your full name" required>
                         </div>
+                        
+                        <div>
+                            <label class="block text-gray-300 mb-2 font-semibold">Discord Username *</label>
+                            <input type="text" id="training-discord" placeholder="username#0000" required>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-gray-300 mb-2 font-semibold">Age *</label>
+                            <input type="number" id="training-age" placeholder="18+" required>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-gray-300 mb-2 font-semibold">Years of Operational Experience *</label>
+                            <input type="text" id="training-op-exp" placeholder="Minimum 5 years required" required>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-gray-300 mb-2 font-semibold">Teaching/Mentoring Experience</label>
+                            <textarea id="training-teaching" placeholder="Describe any teaching or mentoring experience..."></textarea>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-gray-300 mb-2 font-semibold">Advanced Certifications Held</label>
+                            <textarea id="training-certs" placeholder="List all advanced certifications..."></textarea>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-gray-300 mb-2 font-semibold">Why do you want to become a Training Officer? *</label>
+                            <textarea id="training-why" placeholder="Tell us your motivation..." required></textarea>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-gray-300 mb-2 font-semibold">Describe your teaching philosophy *</label>
+                            <textarea id="training-philosophy" placeholder="How do you approach training and development?" required></textarea>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-gray-300 mb-2 font-semibold">Availability (hours per week) *</label>
+                            <input type="text" id="training-availability" placeholder="e.g., 20-30 hours" required>
+                        </div>
+                        
+                        <button onclick="copyApplication('training')" class="w-full neon-border px-6 py-3 rounded-lg font-semibold text-neon hover:bg-indigo-900/20 transition-all mt-6">
+                            <i data-lucide="copy" class="inline mr-2" size="18"></i>
+                            Copy Application
+                        </button>
+                        <div id="training-success" class="hidden text-green-400 text-center mt-2">✓ Application copied to clipboard!</div>
                     </div>
                 </div>
-                <p class="text-gray-400 mb-6">
-                    Communications specialists coordinating emergency response, unit deployment, and real-time tactical support from command center.
-                </p>
-                <div class="space-y-3 mb-6">
-                    <div class="flex items-start space-x-2">
-                        <i data-lucide="check" class="text-green-400 mt-1" size="18"></i>
-                        <span class="text-sm text-gray-300">Clear communication skills</span>
-                    </div>
-                    <div class="flex items-start space-x-2">
-                        <i data-lucide="check" class="text-green-400 mt-1" size="18"></i>
-                        <span class="text-sm text-gray-300">Multi-tasking ability</span>
-                    </div>
-                    <div class="flex items-start space-x-2">
-                        <i data-lucide="check" class="text-green-400 mt-1" size="18"></i>
-                        <span class="text-sm text-gray-300">Calm under pressure</span>
-                    </div>
-                </div>
-                <button class="w-full neon-border px-6 py-3 rounded-lg font-semibold text-neon hover:bg-indigo-900/20 transition-all">
-                    Apply Now
-                </button>
             </div>
 
-            <!-- Training Officer -->
-            <div class="glass-card rounded-xl p-8 hover:neon-border transition-all group">
-                <div class="flex items-start justify-between mb-4">
-                    <div class="flex items-center space-x-3">
-                        <div class="w-14 h-14 rounded-lg bg-gradient-to-br from-indigo-500/20 to-purple-500/20 flex items-center justify-center group-hover:scale-110 transition-transform">
-                            <i data-lucide="graduation-cap" class="text-neon" size="28"></i>
-                        </div>
-                        <div>
-                            <h3 class="text-2xl font-bold text-gray-100">Training Officer</h3>
-                            <span class="status-open px-2 py-1 rounded text-xs font-semibold">OPEN</span>
-                        </div>
-                    </div>
-                </div>
-                <p class="text-gray-400 mb-6">
-                    Instructors responsible for training programs, certification courses, and continuous professional development for all personnel.
-                </p>
-                <div class="space-y-3 mb-6">
-                    <div class="flex items-start space-x-2">
-                        <i data-lucide="check" class="text-green-400 mt-1" size="18"></i>
-                        <span class="text-sm text-gray-300">5+ years operational experience</span>
-                    </div>
-                    <div class="flex items-start space-x-2">
-                        <i data-lucide="check" class="text-green-400 mt-1" size="18"></i>
-                        <span class="text-sm text-gray-300">Teaching/mentoring experience</span>
-                    </div>
-                    <div class="flex items-start space-x-2">
-                        <i data-lucide="check" class="text-green-400 mt-1" size="18"></i>
-                        <span class="text-sm text-gray-300">Advanced certifications in multiple areas</span>
-                    </div>
-                </div>
-                <button class="w-full neon-border px-6 py-3 rounded-lg font-semibold text-neon hover:bg-indigo-900/20 transition-all">
-                    Apply Now
-                </button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Requirements -->
-    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div class="glass-card rounded-xl p-8 neon-border">
-            <h2 class="text-3xl font-bold text-neon-purple mb-6">General Requirements</h2>
-            <div class="grid md:grid-cols-2 gap-6">
-                <div class="space-y-4">
-                    <h3 class="text-xl font-semibold text-neon">Minimum Qualifications</h3>
-                    <ul class="space-y-3">
-                        <li class="flex items-start space-x-2">
-                            <i data-lucide="circle-check-big" class="text-green-400 mt-1" size="20"></i>
-                            <span class="text-gray-300">Must be 18 years of age or older</span>
-                        </li>
-                        <li class="flex items-start space-x-2">
-                            <i data-lucide="circle-check-big" class="text-green-400 mt-1" size="20"></i>
-                            <span class="text-gray-300">Clean criminal background check</span>
-                        </li>
-                        <li class="flex items-start space-x-2">
-                            <i data-lucide="circle-check-big" class="text-green-400 mt-1" size="20"></i>
-                            <span class="text-gray-300">High school diploma or equivalent</span>
-                        </li>
-                        <li class="flex items-start space-x-2">
-                            <i data-lucide="circle-check-big" class="text-green-400 mt-1" size="20"></i>
-                            <span class="text-gray-300">Valid UK driving license (for field positions)</span>
-                        </li>
-                    </ul>
-                </div>
-                <div class="space-y-4">
-                    <h3 class="text-xl font-semibold text-neon">Desired Qualities</h3>
-                    <ul class="space-y-3">
-                        <li class="flex items-start space-x-2">
-                            <i data-lucide="circle-check-big" class="text-purple-400 mt-1" size="20"></i>
-                            <span class="text-gray-300">Strong problem-solving abilities</span>
-                        </li>
-                        <li class="flex items-start space-x-2">
-                            <i data-lucide="circle-check-big" class="text-purple-400 mt-1" size="20"></i>
-                            <span class="text-gray-300">Team-oriented mindset</span>
-                        </li>
-                        <li class="flex items-start space-x-2">
-                            <i data-lucide="circle-check-big" class="text-purple-400 mt-1" size="20"></i>
-                            <span class="text-gray-300">Dedication to public service</span>
-                        </li>
-                        <li class="flex items-start space-x-2">
-                            <i data-lucide="circle-check-big" class="text-purple-400 mt-1" size="20"></i>
-                            <span class="text-gray-300">Ability to work under pressure</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
         </div>
     </section>
 
@@ -481,14 +597,141 @@
     </footer>
 
     <script>
+        // Initialize Lucide icons
         lucide.createIcons();
         
+        // Mobile menu toggle
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
         
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+
+        // Toggle application form
+        function toggleApplication(type) {
+            const form = document.getElementById(`${type}-form`);
+            const icon = document.getElementById(`${type}-icon`);
+            
+            // Close all other forms
+            const allForms = document.querySelectorAll('.application-form');
+            const allIcons = document.querySelectorAll('[id$="-icon"]');
+            
+            allForms.forEach(f => {
+                if (f.id !== `${type}-form`) {
+                    f.classList.remove('active');
+                }
+            });
+            
+            allIcons.forEach(i => {
+                if (i.id !== `${type}-icon`) {
+                    i.style.transform = 'rotate(0deg)';
+                }
+            });
+            
+            // Toggle current form
+            form.classList.toggle('active');
+            
+            if (form.classList.contains('active')) {
+                icon.style.transform = 'rotate(180deg)';
+            } else {
+                icon.style.transform = 'rotate(0deg)';
+            }
+            
+            // Re-initialize icons after DOM changes
+            setTimeout(() => lucide.createIcons(), 100);
+        }
+
+        // Copy application to clipboard
+        function copyApplication(type) {
+            let applicationText = `═══════════════════════════════════════════════════\n`;
+            applicationText += `       UKFR - ${type.toUpperCase()} APPLICATION\n`;
+            applicationText += `═══════════════════════════════════════════════════\n\n`;
+            
+            const fields = {
+                'patrol': [
+                    { id: 'name', label: 'Full Name' },
+                    { id: 'discord', label: 'Discord Username' },
+                    { id: 'age', label: 'Age' },
+                    { id: 'experience', label: 'Previous Law Enforcement Experience' },
+                    { id: 'why', label: 'Why do you want to join UKFR?' },
+                    { id: 'fit', label: 'What makes you a good fit for Patrol Officer?' },
+                    { id: 'availability', label: 'Availability' },
+                    { id: 'driving', label: 'Clean Driving Record?' }
+                ],
+                'detective': [
+                    { id: 'name', label: 'Full Name' },
+                    { id: 'discord', label: 'Discord Username' },
+                    { id: 'age', label: 'Age' },
+                    { id: 'patrol-exp', label: 'Years of Patrol Experience' },
+                    { id: 'investigation', label: 'Investigative Experience' },
+                    { id: 'why', label: 'Why do you want to become a Detective?' },
+                    { id: 'skills', label: 'Analytical and Problem-Solving Skills' },
+                    { id: 'scenario', label: 'Robbery Investigation Scenario' }
+                ],
+                'tactical': [
+                    { id: 'name', label: 'Full Name' },
+                    { id: 'discord', label: 'Discord Username' },
+                    { id: 'age', label: 'Age' },
+                    { id: 'duty-exp', label: 'Years of Active Duty Experience' },
+                    { id: 'certs', label: 'Advanced Tactical Certifications' },
+                    { id: 'why', label: 'Why do you want to join the Tactical Unit?' },
+                    { id: 'pressure', label: 'High-Pressure Situations Experience' },
+                    { id: 'fitness', label: 'Physical Fitness Level' },
+                    { id: 'leadership', label: 'Team Leadership Experience' }
+                ],
+                'dispatcher': [
+                    { id: 'name', label: 'Full Name' },
+                    { id: 'discord', label: 'Discord Username' },
+                    { id: 'age', label: 'Age' },
+                    { id: 'comm', label: 'Communication Experience' },
+                    { id: 'why', label: 'Why do you want to be a Dispatcher?' },
+                    { id: 'multitask', label: 'Multi-tasking Abilities' },
+                    { id: 'stress', label: 'How do you handle stressful situations?' },
+                    { id: 'availability', label: 'Availability' }
+                ],
+                'training': [
+                    { id: 'name', label: 'Full Name' },
+                    { id: 'discord', label: 'Discord Username' },
+                    { id: 'age', label: 'Age' },
+                    { id: 'op-exp', label: 'Years of Operational Experience' },
+                    { id: 'teaching', label: 'Teaching/Mentoring Experience' },
+                    { id: 'certs', label: 'Advanced Certifications Held' },
+                    { id: 'why', label: 'Why do you want to become a Training Officer?' },
+                    { id: 'philosophy', label: 'Teaching Philosophy' },
+                    { id: 'availability', label: 'Availability' }
+                ]
+            };
+            
+            const currentFields = fields[type];
+            
+            currentFields.forEach(field => {
+                const element = document.getElementById(`${type}-${field.id}`);
+                const value = element ? (element.value || 'Not provided') : 'Not provided';
+                applicationText += `${field.label}:\n${value}\n\n`;
+            });
+            
+            applicationText += `═══════════════════════════════════════════════════\n`;
+            applicationText += `Application Date: ${new Date().toLocaleDateString()}\n`;
+            applicationText += `Position: ${type.charAt(0).toUpperCase() + type.slice(1)}\n`;
+            applicationText += `═══════════════════════════════════════════════════`;
+            
+            // Copy to clipboard
+            navigator.clipboard.writeText(applicationText).then(() => {
+                const successMsg = document.getElementById(`${type}-success`);
+                successMsg.classList.remove('hidden');
+                successMsg.classList.add('copy-success');
+                
+                setTimeout(() => {
+                    successMsg.classList.add('hidden');
+                }, 3000);
+            }).catch(err => {
+                alert('Failed to copy. Please try again.');
+                console.error('Copy failed:', err);
+            });
+        }
     </script>
 </body>
 </html>
